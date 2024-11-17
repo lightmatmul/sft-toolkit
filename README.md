@@ -27,6 +27,7 @@ sft-toolkit/
 - `model_utils.py`: Contains utility functions for model initialization and configuration.
 - `data_utils.py`: Handles data processing, tokenization, and dynamic batch sampling.
 - `pyproject.toml`: Project configuration and dependencies.
+- `examples/`: Contains example scripts demonstrating toolkit usage.
 - `README.md`: Documentation and usage instructions.
 - `__init__.py`: Marks the directory as a Python module.
 
