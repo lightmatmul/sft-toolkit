@@ -4,7 +4,7 @@ A Python-based toolkit designed for Supervised Fine-Tuning (SFT) of Large Langua
 
 ## Features
 
-- **Instruction and Answer Data Handling**: Designed to work with datasets that have both an instruction and an answer, facilitating the training of models that can follow and respond to user instructions.
+- **Instruction and Answer Data Handling**: Designed to work with datasets that have both an input and an output, facilitating the training of models that can follow and respond to user instructions.
 - **Distributed Training with Accelerate**: Utilizes the accelerate library for seamless multi-GPU and Distributed Data Parallel (DDP) training.
 - **Dynamic Batch Sampling**: Implements a dynamic batch sampler to optimize GPU memory usage and training efficiency.
 - **Prompt Masking in Loss Calculations**: Incorporates prompt masking to ensure that only the response portion of the data contributes to the loss during training.
@@ -85,3 +85,25 @@ python trainer.py \
 - `--lora_use`: Enable LoRA fine-tuning
 - `--lora_r`: Rank of the LoRA decomposition
 - `--lora_alpha`: Scaling factor for LoRA updates
+
+### Example Script
+
+An example script is provided in `examples/train_with_lora.py`
+
+```python
+from trainer import main, parse_args
+if name == "main":
+# Example configuration for LoRA fine-tuning
+args = parse_args([
+"--model_name", "meta-llama/Llama-2-7b-hf",
+"--dataset_name", "AdapterOcean/python-code-instructions-18k-alpaca-standardized",
+"--experiment_dir", "./experiments",
+"--lora_use",
+"--lora_r", "8",
+"--lora_alpha", "32",
+"--num_epochs", "3",
+"--learning_rate", "5e-5",
+"--max_sequence_length", "2048"
+])
+main(args)
+```
