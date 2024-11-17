@@ -19,6 +19,8 @@ sft-toolkit/
 ├── data_utils.py
 ├── pyproject.toml
 ├── README.md
+└── examples/
+└── train_with_lora.py
 ```
 
 - `trainer.py`: Main training script that orchestrates the fine-tuning process.
